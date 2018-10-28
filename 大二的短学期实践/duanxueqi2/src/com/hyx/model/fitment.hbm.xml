@@ -1,0 +1,176 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">  
+<hibernate-mapping package="com.hyx.model">  
+    <!-- 标识一个类的xml映射,name为类名,table为表名 -->  
+    <class name="User" table="user">  
+        <id name="userId" type="int">  
+            <column name="userId"/>  
+            <generator class="increment"/>  
+        </id>
+
+        <property name="userName" type="string" column="userName" />
+        <property name="userAccount" type="string" column="userAccount" />
+        <property name="userPassword" type="string" column="userPassword" />
+        <property name="userLevel" type="int" column="userLevel" />
+		      
+    </class>  
+    
+    
+    
+    
+    <class name="Brand" table="brand">  
+        <id name="brandName" type="string">  
+            <column name="brandName"/>  
+            
+        </id>
+        <property name="brandRemark" type="string" column="brandRemark" />
+        <property name="sortName" type="string" column="sortName" />
+		      
+    </class>
+    
+    
+    
+    <class name="Client" table="client">  
+        <id name="clientId" type="int">  
+            <column name="clientId"/>  
+            <generator class="increment"/>  
+        </id>
+        <property name="clientName" type="string" column="clientName" />
+        <property name="houseId" type="int" column="houseId" />
+        		      
+    </class>
+    
+    
+    
+    
+    <class name="House" table="house">  
+        <id name="houseId" type="int">  
+            <column name="houseId"/>  
+            <generator class="increment"/>  
+        </id>
+        <property name="houseAddress" type="string" column="houseAddress" />
+        <property name="houseTotalArea" type="float" column="houseTotalArea" />
+        <property name="room" type="int" column="room" />	 
+        <property name="userId" type="int" column="userId" />	      
+    </class>
+    
+    
+    
+    <class name="Material" table="materialinfo">  
+        <id name="materialId" type="int">  
+            <column name="materialId"/>  
+            <generator class="increment"/>  
+        </id>
+        <property name="materialName" type="string" column="materialName" />
+        <property name="sortName" type="string" column="sortName" />
+        <property name="brandName" type="string" column="brandName" />	 
+        <property name="specification" type="string" column="specification" />
+        <property name="version" type="string" column="version" />
+        <property name="color" type="string" column="color" />
+        <property name="price" type="int" column="price" />	 
+        <property name="unit" type="string" column="unit" />		      
+    </class>
+    
+    
+    
+    
+    
+    <class name="MaterialBudget" table="materialbudget">  
+        <id name="mbId" type="int">  
+            <column name="mbId"/>  
+            <generator class="increment"/>  
+        </id>
+        <property name="materialId" type="int" column="materialId" />
+        <property name="roomId" type="int" column="roomId" />
+        <property name="count" type="int" column="count" />
+        <property name="price" type="int" column="price" />
+        <property name="totalPrice" type="int" column="totalPrice" />
+           		      
+    </class>
+   
+   
+   
+   
+   
+    <class name="MSInfo" table="msinfo">  
+        <id name="msId" type="int">  
+            <column name="msId"/>  
+            <generator class="increment"/>  
+        </id>
+        <property name="serviceId" type="int" column="serviceId" />
+        <property name="materialId" type="int" column="materialId" />
+        <property name="count" type="int" column="count" />
+           		      
+    </class>
+    
+    <class name="MSBInfo" table="msbinfo">  
+        <id name="msbId" type="int">  
+            <column name="msbId"/>  
+            <generator class="increment"/>  
+        </id>
+        <property name="mbId" type="int" column="mbId" />
+        <property name="sbId" type="int" column="sbId" />
+        <property name="roomId" type="int" column="roomId" />      
+    </class>
+    
+    
+    
+    <class name="Room" table="room">  
+        <id name="roomId" type="int">  
+            <column name="roomId"/>  
+            <generator class="increment"/>  
+        </id>
+        <property name="roomArea" type="float" column="roomArea" />
+        <property name="houseId" type="int" column="houseId" />
+        <property name="roomSort" type="int" column="roomSort" />
+        <property name="roomRemark" type="string" column="roomRemark" />
+           		      
+    </class>
+    
+    
+    
+    
+    
+    
+    <class name="Service" table="serviceinfo">  
+        <id name="serviceId" type="int">  
+            <column name="serviceId"/>  
+            <generator class="increment"/>  
+        </id>
+        <property name="serviceName" type="string" column="serviceName" />
+        <property name="serviceContent" type="string" column="serviceContent" />
+        <property name="serviceLevel" type="int" column="serviceLevel" />
+        <property name="price" type="int" column="price" />
+        <property name="count" type="string" column="count" />
+        <property name="time" type="float" column="time" />
+           		      
+    </class>
+    
+    
+    
+    
+    <class name="ServiceBudget" table="servicebudget">  
+        <id name="sbId" type="int">  
+            <column name="sbId"/>  
+            <generator class="increment"/>  
+        </id>
+        <property name="serviceId" type="int" column="serviceId" />
+        <property name="roomId" type="int" column="roomId" />
+        <property name="count" type="int" column="count" />
+        <property name="time" type="float" column="time" />
+        <property name="remark" type="string" column="remark" />
+        <property name="totalPrice" type="int" column="totalPrice" />
+           		      
+    </class>
+    
+    
+    
+    <class name="Sort" table="sort">  
+        <id name="sortName" type="string">  
+            <column name="sortName"/>  
+              
+        </id>
+        <property name="sortRemark" type="string" column="sortRemark" />
+           		      
+    </class>
+
+</hibernate-mapping>  
